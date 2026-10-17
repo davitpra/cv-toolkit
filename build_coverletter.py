@@ -55,7 +55,13 @@ def set_text(p, text):
     return p[:start] + new_run + p[end:]
 
 
+ADDRESS_SUFFIX = ' | 1440 Beaverbrook London,Ontario N6H 5W6'
+
+
 def build(fields, paras, xml):
+    # Opt-in: "Address: none" in letter.md leaves the street address out of the header.
+    if fields.get('address', '').lower() == 'none':
+        xml = xml.replace(ADDRESS_SUFFIX, '')
     ps = PARA_RE.findall(xml)
     text = [''.join(re.findall(r'<w:t[^>]*>([^<]*)</w:t>', p)) for p in ps]
 

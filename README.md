@@ -76,6 +76,7 @@ bullets 10pt with "●" bullets.
 ```
 Role: Senior Full-Stack Developer
 Date: October 15, 2026          (optional, defaults to today)
+Address: none                   (optional, drops the street address from the header)
 Greeting: Hi Sarah,
 ---
 First paragraph.
