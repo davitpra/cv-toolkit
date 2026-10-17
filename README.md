@@ -49,7 +49,7 @@ whole file.
 ```
 # DAVID PRADO                                → name
 Title: Senior Frontend Developer             → title line
-Contact: ...                                 → copied verbatim from the template (text here is ignored)
+Contact: ...                                 → copied from the template (text here is ignored), except: if the line has no "London", the "London, ON | " prefix is dropped
 ## PROFESSIONAL SUMMARY                      → section heading
 Plain line                                   → body paragraph (supports **bold**)
 **Core stack:** TypeScript, ...              → skill line (body paragraph with bold label)

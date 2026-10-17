@@ -118,7 +118,8 @@ def build(md_text, template_xml):
         elif line.startswith('Title:'):
             out.append(p_title(line[6:].strip()))
         elif line.startswith('Contact:'):
-            out.append(contact)
+            # Opt-in: a Contact line without "London" drops the template's "London, ON | " prefix.
+            out.append(contact if 'London' in line else contact.replace('London, ON | ', ''))
         elif line.startswith('- '):
             out.append(p_bullet(line[2:].strip(), in_project))
             after_h3 = False
