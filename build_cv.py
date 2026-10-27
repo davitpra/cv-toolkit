@@ -119,7 +119,14 @@ def build(md_text, template_xml):
             out.append(p_title(line[6:].strip()))
         elif line.startswith('Contact:'):
             # Opt-in: a Contact line without "London" drops the template's "London, ON | " prefix.
-            out.append(contact if 'London' in line else contact.replace('London, ON | ', ''))
+            # A Contact line starting with another location (e.g. "Contact: Canada | ...") swaps it in.
+            loc = line[8:].split(' | ', 1)[0].strip()
+            if 'London' in line:
+                out.append(contact)
+            elif loc and not loc.startswith('+') and '@' not in loc:
+                out.append(contact.replace('London, ON', escape(loc)))
+            else:
+                out.append(contact.replace('London, ON | ', ''))
         elif line.startswith('- '):
             out.append(p_bullet(line[2:].strip(), in_project))
             after_h3 = False
