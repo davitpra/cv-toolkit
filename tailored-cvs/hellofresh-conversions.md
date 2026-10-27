@@ -11,8 +11,8 @@ Senior Frontend Engineer with 6+ years taking React and TypeScript products from
 **AI-assisted development:** Claude Code, Codex, agentic coding workflows, spec-driven development
 **Testing:** Jest, Cypress, integration testing
 **AI & e-commerce:** Generative AI integration, fal.ai, vision models, dynamic prompting, Shopify (GraphQL APIs, headless, metaobjects and metafields)
-**Backend & data:** REST APIs, GraphQL, Express, Prisma, Drizzle, Redis, BullMQ, pg-boss, Socket.IO, Strapi, MongoDB
-**Architecture:** Offline-first (outbox pattern), modular monolith, monorepos (pnpm), immutable audit trails, Strategy pattern
+**Backend & data:** REST APIs, GraphQL, Express, Prisma, Drizzle, Redis, BullMQ, pg-boss, Socket.IO, Strapi
+**Architecture:** Offline-first (outbox pattern), modular monolith, monorepos (pnpm), Strategy pattern
 **DevOps & practices:** Docker, Kubernetes, CI/CD, Git, GitHub, Vercel, Railway, Render, Agile/Scrum, ADRs, Jira
 
 ## PROFESSIONAL EXPERIENCE
@@ -37,9 +37,9 @@ Custom web systems and AI-powered products for small businesses and my own ventu
 #### Offline Inspection System · Ontario Greenhouses, London, ON | Aug 2026 – Oct 2026
 - Designed and built, as the sole developer, an offline-first React PWA for health & safety, maintenance, and electrical inspections, piloted with **~30 users**. It organizes work areas, assigns owners, and tracks each finding through to corrective action.
 - Gathered requirements with Health & Safety and Human Resources to digitize inspections across two sites. Identified the lack of connectivity in the greenhouse as the reason the previous tool was abandoned.
-- Solved offline sync with the outbox pattern on IndexedDB and Service Workers. Implemented database-level immutability, per-site Row-Level Security, and hash-chained audit logs aligned with OHSA requirements.
+- Solved offline sync with the outbox pattern on IndexedDB and Service Workers. Implemented database-level immutability, per-site Row-Level Security, and hash-chained audit logs (OHSA).
 - Documented the architecture in **12 ADRs** and applied spec-driven development (OpenSpec) with integration tests in CI.
-**Stack:** TypeScript · React · Vite · TanStack · NestJS · PostgreSQL · Drizzle · pg-boss · Dexie · Serwist · Docker
+**Stack:** TypeScript · React · Vite · TanStack · NestJS · PostgreSQL · Drizzle · Dexie · Serwist · Docker
 
 #### Meal Ordering System · Horizon Place care residence, London, ON | Mar 2024 – Aug 2024
 - Identified the need to digitize paper meal orders while working in the residence's dietary department, then designed and built a full-stack web application to replace them.
