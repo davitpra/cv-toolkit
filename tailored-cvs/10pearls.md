@@ -65,8 +65,5 @@ Fanshawe College | London, ON, Canada
 ### Diploma, Internet Applications and Web Development | Sep 2023 – Apr 2025
 Fanshawe College | London, ON, Canada
 
-### Full Stack Developer with JavaScript · React Front-end Developer | 2019 – 2023
-Platzi | Online
-
 ## LANGUAGES
 **Spanish:** Native · **English:** Professional
