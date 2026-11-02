@@ -4,9 +4,15 @@ Builds David's tailored CVs and cover letters as .docx + PDF from small
 markdown files, with his exact Word templates. Nothing here needs to be read
 into a chat's context: clone, write the markdown, run one command.
 
-The content rules (what to tailor, what never to add, delivery rules) live in
-the "Aplicaciones Tech" Claude project, in `cv/cv-structure.md`. The master CV
-content is `cv/master-cv.md` in that project.
+**`master-cv.md` in this repo is the single source of truth for David's master
+CV.** Every chat, in any project, reads it from here; no other copy is kept.
+To change the CV, edit this file and push. The tailoring rules (what to tailor,
+what never to add, delivery rules) live in the "Aplicaciones Tech" Claude
+project, in `cv/cv-structure.md`.
+
+Tailored CVs and cover letters (`tailored.md`, `letter.md`) are working files:
+write them outside the repo or in `tailored-cvs/`, which is git-ignored. Never
+commit them (the repo is public).
 
 ## Usage
 
@@ -36,6 +42,7 @@ whole file.
 
 | File | What it is |
 |---|---|
+| `master-cv.md` | **the master CV** (single source of truth), in the build format below |
 | `make.sh` | build → PDF → check → detector, one command |
 | `build_cv.py` | CV markdown → .docx with the master CV's exact styles |
 | `build_coverletter.py` | letter markdown → .docx from the Word cover letter template |
