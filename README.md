@@ -18,7 +18,7 @@ commit them (the repo is public).
 
 ```bash
 git clone --depth 1 https://github.com/davitpra/cv-toolkit && cd cv-toolkit
-./make.sh cv tailored.md "Company" [max_pages]   # default max 2
+./make.sh cv tailored.md "Company" [max_pages] [keywords.txt]   # default max 2
 ./make.sh cl letter.md "Company"                 # default max 1
 ```
 
@@ -31,7 +31,13 @@ Each run prints a short report:
    every page but the last (to spot a header left at the bottom). Text only,
    so the PDF doesn't need to be rendered and looked at. Only render a page
    (`pdftoppm -r 60 -png`) when the report flags something you can't judge.
-2. `detect_summary.py`: the li-human detector. CV: SLOP DENSITY and FINGERPRINT
+2. `check_ats.py` (only when a keywords file is the 5th argument): checks the PDF
+   has a real text layer, the standard headings and the contact data in the body,
+   and that at least 80% of the posting's required keywords appear in the CV. It
+   lists every keyword not covered, those found only in the skills list, and the
+   gaps (asked by the posting, not supported by `master-cv.md`, never added).
+   Keywords file format: see the docstring of `check_ats.py`.
+3. `detect_summary.py`: the li-human detector. CV: SLOP DENSITY and FINGERPRINT
    only (2 "curly quote" from the typographic apostrophes in the summary are
    expected). Cover letter: every check plus the verdict; iterate until PASS.
 
@@ -47,6 +53,7 @@ whole file.
 | `build_cv.py` | CV markdown → .docx with the master CV's exact styles |
 | `build_coverletter.py` | letter markdown → .docx from the Word cover letter template |
 | `check_pdf.py` | text-only layout check |
+| `check_ats.py` | ATS check: text layer + keyword coverage (min 80%) |
 | `detect_summary.py` | runs li-human `detect.py` and summarizes it |
 | `templates/cv-template.docx` | master CV ("Resume - David Prado Master EN NUEVO.docx"): page setup, styles, bullets, contact line |
 | `templates/coverletter-template.docx` | Word cover letter template (Arial, embedded fonts removed) |

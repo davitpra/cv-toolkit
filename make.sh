@@ -2,7 +2,8 @@
 # One command per document: build the .docx, convert to PDF, run the text-only
 # layout check and the li-human detector, and print a short summary.
 #
-#   ./make.sh cv <tailored.md> "<Company>" [max_pages]   -> out/Resume - David Prado - <Company>.pdf
+#   ./make.sh cv <tailored.md> "<Company>" [max_pages] [keywords.txt]  -> out/Resume - David Prado - <Company>.pdf
+#       with keywords.txt (see check_ats.py) it also runs the ATS check, min 80% coverage
 #   ./make.sh cl <letter.md>   "<Company>"               -> out/Cover Letter - David Prado - <Company>.docx + .pdf
 #
 # max_pages defaults to 2 for the CV and 1 for the cover letter.
@@ -24,6 +25,13 @@ soffice --headless --convert-to pdf --outdir "$OUT" "$OUT/$name.docx" >/dev/null
 echo "built: $OUT/$name.pdf"
 
 python3 "$HERE/check_pdf.py" "$OUT/$name.pdf" "$max" || true
+
+# ATS check (CV only, needs a keywords file written from the posting)
+if [ "$kind" = "cv" ] && [ -n "${5:-}" ]; then
+  python3 "$HERE/check_ats.py" "$OUT/$name.pdf" "$5" 80 || true
+elif [ "$kind" = "cv" ]; then
+  echo "ATS check skipped: no keywords file (5th argument)"
+fi
 
 # li-human detector, summarized. CV: only slop and fingerprint matter.
 python3 "$HERE/detect_summary.py" "$kind" "$src"
